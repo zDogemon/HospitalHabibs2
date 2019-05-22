@@ -147,7 +147,7 @@ class DAL {
 
     Cursor loadAll() {
         Cursor cursor;
-        String[] fields = {CreateDatabase.IDADE, CreateDatabase.NOME, CreateDatabase.MORTALIDADE};
+        String[] fields = {CreateDatabase.ID, CreateDatabase.IDADE, CreateDatabase.NOME, CreateDatabase.MORTALIDADE};
         db = database.getReadableDatabase();
 
         // SELECT _id, title FROM book

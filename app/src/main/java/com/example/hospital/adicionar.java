@@ -1,6 +1,5 @@
 package com.example.hospital;
 
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class adicionar extends AppCompatActivity {
+public class Adicionar extends AppCompatActivity {
 
     EditText nome;
     EditText idade;
@@ -93,7 +92,7 @@ public class adicionar extends AppCompatActivity {
                 pontuacao.setText(score + "");
                 mortalidade.setText(mort_p + "%");
 
-                DAL dal = new DAL(adicionar.this);
+                DAL dal = new DAL(Adicionar.this);
 
 
                 String nome_s = nome.getText().toString();
@@ -107,10 +106,10 @@ public class adicionar extends AppCompatActivity {
                 Double mortalidade_s = mort_p;
 
                 if (dal.insert(nome_s, idade_s, litiase_s, leucocitos_s, glicemia_s, ast_tgo_s, ldh_s, pontuacao_s, mortalidade_s)) {
-                    Toast.makeText(adicionar.this,
+                    Toast.makeText(Adicionar.this,
                             "Registro Inserido com sucesso!", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(adicionar.this,
+                    Toast.makeText(Adicionar.this,
                             "Erro ao inserir registro!", Toast.LENGTH_LONG).show();
                 }
 

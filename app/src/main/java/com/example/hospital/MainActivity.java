@@ -29,17 +29,17 @@ public class MainActivity extends AppCompatActivity {
 
         lista = findViewById(R.id.lista);
 
-        //DAL dal = new DAL(this);
-        //Cursor cursor = dal.loadAll();
+        DAL dal = new DAL(this);
+        Cursor cursor = dal.loadAll();
 
-        //String[] fields = new String[] {CreateDatabase.IDADE, CreateDatabase.NOME, CreateDatabase.MORTALIDADE};
-        //int[] ids = {R.id.pacienteIdade, R.id.pacienteNome, R.id.pacienteMortalidade};
+        String[] fields = new String[] {CreateDatabase.IDADE, CreateDatabase.NOME, CreateDatabase.MORTALIDADE};
+        int[] ids = {R.id.pacienteIdade, R.id.pacienteNome, R.id.pacienteMortalidade};
 
-        //Log.d(TAG, "onCreate: " + cursor.getCount());
-        //adapter = new SimpleCursorAdapter(MainActivity.this,
-        //        R.layout.paciente_layout, cursor, fields, ids, 0);
+        Log.d(TAG, "onCreate: " + cursor.getCount());
+        adapter = new SimpleCursorAdapter(MainActivity.this,
+                R.layout.paciente_layout, cursor, fields, ids, 0);
 
-        //lista.setAdapter(adapter);
+        lista.setAdapter(adapter);
 
 
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         //.setAction("Action", null).show();
-                Intent i = new Intent(MainActivity.this, adicionar.class);
+                Intent i = new Intent(MainActivity.this, Adicionar.class);
                 startActivity(i);
             }
         });
@@ -76,5 +76,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        DAL dal = new DAL(this);
+        Cursor cursor = dal.loadAll();
+
+
+        String[] fields = new String[] {CreateDatabase.IDADE, CreateDatabase.NOME, CreateDatabase.MORTALIDADE};
+        int[] ids = {R.id.pacienteIdade, R.id.pacienteNome, R.id.pacienteMortalidade};
+
+        adapter = new SimpleCursorAdapter(MainActivity.this,
+                R.layout.paciente_layout, cursor, fields, ids, 0);
+
+
+
+        lista.setAdapter(adapter);
+
     }
 }

@@ -75,4 +75,6 @@ public class Paciente {
     public void setLdh(double ldh) {
         this.ldh = ldh;
     }
+
+
 }
